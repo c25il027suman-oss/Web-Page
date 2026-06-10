@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://c25il027suman-oss.github.io/Web-Page/preview.png" alt="Pakhribas Preview Banner" width="100%" style="border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.05);" />
+  <img src="banner.png" alt="Pakhribas Preview Banner" width="100%" style="border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.05);" />
   <br><br>
   <h1>🌿 Pakhribas — The Hidden Emerald of East Nepal</h1>
   <p>
@@ -26,7 +26,7 @@ The design follows a **Japanese‑inspired Bento Grid** philosophy: each card fe
 <br>
 
 <div align="center">
-  <img src="https://c25il027suman-oss.github.io/Web-Page/preview.png" alt="Page Preview" width="80%" style="border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);" />
+  <img src="preview.png" alt="Page Preview" width="80%" style="border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);" />
   <p><sub>A clean, story‑first layout — built to feel like turning pages of a travel journal.</sub></p>
 </div>
 
