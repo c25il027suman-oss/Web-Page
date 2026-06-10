@@ -3,501 +3,1621 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pakhribas — The Hidden Emerald of East Nepal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #27ae60;
+            --emerald-deep: #1a7a3f;
+            --emerald-dark: #0f4c25;
+            --gold: #c8943e;
+            --gold-light: #e8c97a;
+            --vermilion: #c0392b;
+            --indigo: #1a1a2e;
+            --indigo-light: #252542;
+            --cream: #faf8f5;
+            --warm-white: #fefdfb;
+            --stone: #e8e4df;
+            --text-dark: #1c1c1c;
+            --text-medium: #3d3d3d;
+            --text-light: #6b6b6b;
+            --text-muted: #8a8a8a;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 30px 70px rgba(0, 0, 0, 0.12);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 36px;
+            --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-sans: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-serif: 'Playfair Display', 'Noto Serif', Georgia, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(ellipse at 15% 5%, rgba(39, 174, 96, 0.03) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 30%, rgba(200, 148, 62, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 70%, rgba(39, 174, 96, 0.02) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* ============ ANIMATION KEYFRAMES ============ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes softFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        @keyframes subtlePulse {
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        @keyframes lineGrow {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        @keyframes gentleSway {
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(0.5deg);
+            }
+            75% {
+                transform: rotate(-0.5deg);
+            }
+        }
+
+        /* ============ REVEAL ON SCROLL ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
+
+        /* ============ HERO CONTAINER ============ */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            min-height: 750px;
+            background-image: linear-gradient(to bottom,
+                    rgba(15, 20, 35, 0.35) 0%,
+                    rgba(15, 20, 35, 0.15) 35%,
+                    rgba(15, 20, 35, 0.25) 65%,
+                    rgba(15, 20, 35, 0.7) 100%),
+                url('https://nepaltraveller.com/laravel-filemanager/photos/74/Sunset__Tea_Garden.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Subtle grain overlay */
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.008) 2px,
+                    rgba(255, 255, 255, 0.008) 4px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.006) 2px,
+                    rgba(255, 255, 255, 0.006) 4px);
+        }
+
+        /* Floating decorative circle */
+        .hero-zen-circle {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .hero-zen-circle.c1 {
+            width: 320px;
+            height: 320px;
+            top: -100px;
+            right: -80px;
+            animation: softFloat 8s ease-in-out infinite;
+        }
+        .hero-zen-circle.c2 {
+            width: 180px;
+            height: 180px;
+            bottom: 180px;
+            left: -60px;
+            animation: softFloat 10s ease-in-out infinite reverse;
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all var(--transition-smooth);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 60px;
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+        }
+        .navbar.scrolled .brand-logo {
+            color: var(--indigo);
+        }
+        .navbar.scrolled .brand-logo span {
+            color: var(--emerald);
+        }
+        .navbar.scrolled .nav-links a {
+            color: var(--text-dark);
+        }
+        .navbar.scrolled .nav-links a:hover {
+            color: var(--emerald);
+        }
+        .navbar.scrolled .cta-btn-outline {
+            border-color: var(--indigo);
+            color: var(--indigo);
+        }
+        .navbar.scrolled .cta-btn-outline:hover {
+            background-color: var(--indigo);
+            color: #fff;
+        }
+
+        .brand-logo {
+            font-family: var(--font-serif);
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-decoration: none;
+            transition: color var(--transition-smooth);
+            position: relative;
+        }
+        .brand-logo span {
+            color: #27ae60;
+            transition: color var(--transition-smooth);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 38px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            position: relative;
+            transition: color var(--transition-fast);
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 1.5px;
+            background-color: #27ae60;
+            transition: width var(--transition-smooth);
+            border-radius: 1px;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn-outline {
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            color: #ffffff;
+            padding: 11px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 1.2px;
+            transition: all var(--transition-smooth);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .cta-btn-outline:hover {
+            background-color: #ffffff;
+            color: #1b263b;
+            border-color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: #fff;
+            margin: 6px 0;
+            transition: all var(--transition-fast);
+            border-radius: 1px;
+        }
+        .navbar.scrolled .menu-toggle span {
+            background: var(--indigo);
+        }
+
+        /* ============ HERO CONTENT ============ */
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            padding: 0 80px;
+            margin-top: -30px;
+            z-index: 10;
+            max-width: 800px;
+        }
+        .hero-subtitle {
+            font-size: 0.8rem;
+            color: #e8c97a;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 6px;
+            margin-bottom: 18px;
+            font-family: var(--font-sans);
+            animation: fadeInUp 0.9s ease-out forwards;
+            position: relative;
+            padding-left: 50px;
+        }
+        .hero-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 35px;
+            height: 1px;
+            background: #e8c97a;
+            transform: translateY(-50%);
+            animation: lineGrow 1s ease-out 0.3s forwards;
+            width: 0;
+        }
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 5.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1.05;
+            max-width: 750px;
+            margin-bottom: 28px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+            animation: fadeInUp 0.9s ease-out 0.15s forwards;
+            opacity: 0;
+            letter-spacing: -1px;
+        }
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 0.9s ease-out 0.3s forwards;
+            opacity: 0;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        .cta-btn-primary {
+            background: linear-gradient(135deg, #27ae60 0%, #1e7e43 100%);
+            color: #ffffff;
+            padding: 17px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 12px 30px rgba(39, 174, 96, 0.35);
+            transition: all var(--transition-bounce);
+            animation: fadeInUp 0.9s ease-out 0.45s forwards;
+            opacity: 0;
+            display: inline-block;
+            font-family: var(--font-sans);
+        }
+        .cta-btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(39, 174, 96, 0.5);
+            background: linear-gradient(135deg, #2bbc6a 0%, #228f4d 100%);
+        }
+
+        /* ============ FLOATING SEARCH BAR ============ */
+        .search-bar-wrapper {
+            position: absolute;
+            bottom: 314px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 100px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            padding: 8px 8px 8px 28px;
+            width: 88%;
+            max-width: 950px;
+            z-index: 20;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+            transition: box-shadow var(--transition-smooth);
+        }
+        .search-bar-wrapper:hover {
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.06);
+        }
+        .search-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e8e4df;
+            padding: 6px 18px;
+            transition: all var(--transition-fast);
+        }
+        .search-group:hover {
+            background: rgba(39, 174, 96, 0.03);
+            border-radius: 50px;
+        }
+        .search-group:nth-last-child(2) {
+            border-right: none;
+        }
+        .search-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 3px;
+            font-family: var(--font-sans);
+        }
+        .search-input {
+            border: none;
+            outline: none;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            background: transparent;
+            font-family: var(--font-sans);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .search-input::placeholder {
+            color: #b0b0b0;
+        }
+        .search-btn {
+            background-color: var(--indigo);
+            color: #ffffff;
+            border: none;
+            padding: 17px 32px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all var(--transition-smooth);
+            font-family: var(--font-sans);
+            white-space: nowrap;
+        }
+        .search-btn:hover {
+            background-color: var(--emerald);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.35);
+            transform: scale(1.03);
+        }
+
+        /* ============ SECTION COMMONS ============ */
+        .section-container {
+            max-width: 1640px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .section-spacer {
+            padding: 100px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+        .section-header h3 {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--indigo);
+            letter-spacing: -0.5px;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 550px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 0.4px;
+            line-height: 1.7;
+        }
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background: var(--emerald);
+            border-radius: 2px;
+            margin: 0 auto 18px;
+        }
+
+        /* ============ RESORT CARD (Enhanced) ============ */
+        .resort-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            transition: all var(--transition-smooth);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .resort-card:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-3px);
+        }
+        .resort-image-side {
+            flex: 1;
+            min-width: 350px;
+            background-image: url('https://pbs.twimg.com/media/DiulCNyVMAAB1Xl.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 480px;
+            position: relative;
+            overflow: hidden;
+        }
+        .resort-image-side::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+        .resort-text-side {
+            flex: 1.2;
+            min-width: 350px;
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            background: #fefdfb;
+        }
+        .resort-text-side h2 {
+            font-family: var(--font-serif);
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--indigo);
+            letter-spacing: -0.5px;
+            margin: 0 0 20px 0;
+            position: relative;
+            padding-bottom: 18px;
+            line-height: 1.2;
+        }
+        .resort-text-side h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55px;
+            height: 3px;
+            background: var(--emerald);
+            border-radius: 2px;
+        }
+        .resort-text-side .description {
+            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            background-color: #faf8f5;
+            padding: 22px 24px;
+            border-left: 4px solid var(--emerald);
+            border-radius: 0 12px 12px 0;
+            margin: 0 0 32px 0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .btn-explore {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            background: linear-gradient(135deg, #27ae60 0%, #1e7e43 100%);
+            padding: 15px 40px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.25);
+            transition: all var(--transition-bounce);
+            cursor: pointer;
+            font-family: var(--font-sans);
+            align-self: flex-start;
+        }
+        .btn-explore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #2bbc6a 0%, #228f4d 100%);
+        }
+
+        /* ============ PLACES GRID ============ */
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-auto-rows: 240px;
+            gap: 22px;
+            grid-auto-flow: dense;
+        }
+        .place-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+        .place-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+        .place-card.span-2-col {
+            grid-column: span 2;
+        }
+        .place-card.span-2-row {
+            grid-row: span 2;
+        }
+        .place-card .card-header {
+            padding: 22px 22px 12px 22px;
+            flex-shrink: 0;
+        }
+        .place-card .card-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .place-card .card-tag.tag-green {
+            color: #27ae60;
+        }
+        .place-card .card-tag.tag-orange {
+            color: #e67e22;
+        }
+        .place-card .card-tag.tag-blue {
+            color: #2980b9;
+        }
+        .place-card .card-tag.tag-purple {
+            color: #9b59b6;
+        }
+        .place-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--indigo);
+            margin: 3px 0 6px 0;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        .place-card .card-desc {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        .place-card .card-image {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            margin: 0 18px 18px 18px;
+            border-radius: 10px;
+            min-height: 100px;
+        }
+        .place-card.span-2-col .card-image {
+            margin: 0 20px 20px 20px;
+        }
+        .place-card.row-layout {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .place-card.row-layout .card-header {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 22px;
+        }
+        .place-card.row-layout .card-image {
+            flex: 1;
+            min-width: 160px;
+            min-height: 140px;
+            margin: 16px;
+            border-radius: 10px;
+        }
+
+        /* ============ CULTURE & FOOD SECTION ============ */
+        .culture-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 35px;
+            align-items: stretch;
+        }
+        .culture-row.reversed {
+            flex-direction: row-reverse;
+        }
+        .culture-main-card {
+            flex: 1.4;
+            min-width: 320px;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-smooth);
+        }
+        .culture-main-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .culture-main-card.border-pink {
+            border-top: 5px solid #c0392b;
+        }
+        .culture-main-card.border-gold {
+            border-top: 5px solid #c8943e;
+        }
+        .culture-main-card .card-body {
+            padding: 28px 28px 18px 28px;
+        }
+        .culture-main-card .card-body .tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .culture-main-card .card-body h4 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--indigo);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+        .culture-main-card .card-body p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 300;
+        }
+        .culture-main-card .card-image {
+            flex: 1;
+            min-height: 230px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 22px 22px 22px;
+            border-radius: 14px;
+        }
+        .culture-side-card {
+            flex: 1;
+            min-width: 300px;
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all var(--transition-smooth);
+            border: 1px solid #eaeaea;
+        }
+        .culture-side-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        .culture-side-card.dark-card {
+            background: linear-gradient(145deg, #1a1a2e 0%, #141428 100%);
+            color: #ffffff;
+            border: none;
+        }
+        .culture-side-card .icon-large {
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .culture-side-card h5 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.3px;
+        }
+        .culture-side-card p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        /* ============ DIARY / GALLERY SECTION ============ */
+        .diary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            auto-rows: minmax(280px, auto);
+            gap: 22px;
+        }
+        .diary-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            min-height: 280px;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+        }
+        .diary-item:hover {
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
+        }
+        .diary-item.tall {
+            grid-row: span 2;
+            min-height: 580px;
+        }
+        .diary-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .diary-item:hover img {
+            transform: scale(1.05);
+        }
+        .diary-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 55%, transparent 100%);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: background var(--transition-smooth);
+        }
+        .diary-item:hover .diary-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.05) 100%);
+        }
+        .diary-overlay .diary-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-family: var(--font-sans);
+        }
+        .diary-overlay h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+        .diary-overlay p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* ============ FOOTER ============ */
+        .site-footer {
+            background: var(--indigo);
+            color: #ffffff;
+            padding: 70px 0 0 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+        .site-footer::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -120px;
+            width: 350px;
+            height: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .footer-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-col h6 {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-col .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            display: block;
+            color: #fff;
+        }
+        .footer-col .footer-logo span {
+            color: var(--emerald);
+        }
+        .footer-col p {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color var(--transition-fast);
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        .footer-col ul li a:hover {
+            color: var(--emerald);
+            padding-left: 4px;
+            transition: all var(--transition-fast);
+        }
+        .footer-social {
+            display: flex;
+            gap: 14px;
+            margin-top: 8px;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all var(--transition-smooth);
+            font-size: 0.85rem;
+        }
+        .footer-social a:hover {
+            background: var(--emerald);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 50px;
+            padding: 22px 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+        .footer-bottom span {
+            color: var(--emerald);
+            font-weight: 500;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.8rem;
+            }
+            .hero-content {
+                padding: 0 40px;
+            }
+            .navbar {
+                padding: 18px 30px;
+            }
+            .navbar.scrolled {
+                padding: 12px 30px;
+            }
+            .nav-links {
+                gap: 22px;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+                letter-spacing: 0.8px;
+            }
+            .search-bar-wrapper {
+                width: 92%;
+                flex-wrap: wrap;
+                border-radius: 30px;
+                padding: 14px 18px;
+                gap: 8px;
+                bottom: -20px;
+            }
+            .search-group {
+                border-right: none;
+                flex: 1 1 40%;
+                min-width: 120px;
+            }
+            .search-btn {
+                flex: 1 1 100%;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            .places-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+            .place-card.span-2-col {
+                grid-column: span 1;
+            }
+            .place-card.span-2-row {
+                grid-row: span 1;
+            }
+            .culture-row,
+            .culture-row.reversed {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-container {
+                min-height: 650px;
+                background-attachment: scroll;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+                letter-spacing: 0;
+            }
+            .hero-content {
+                padding: 0 24px;
+                align-items: center;
+                text-align: center;
+                margin-top: 40px;
+            }
+            .hero-subtitle {
+                padding-left: 0;
+                letter-spacing: 3px;
+            }
+            .hero-subtitle::before {
+                display: none;
+            }
+            .hero-description {
+                max-width: 100%;
+                font-size: 0.95rem;
+            }
+            .navbar {
+                padding: 14px 20px;
+            }
+            .navbar.scrolled {
+                padding: 10px 20px;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 999;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                color: var(--indigo) !important;
+                font-size: 1.1rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .cta-btn-outline {
+                display: none;
+            }
+            .search-bar-wrapper {
+                bottom: -40px;
+                border-radius: 24px;
+                width: 94%;
+            }
+            .resort-card {
+                flex-direction: column;
+            }
+            .resort-image-side {
+                min-height: 300px;
+            }
+            .resort-text-side {
+                padding: 30px 24px;
+            }
+            .resort-text-side h2 {
+                font-size: 1.8rem;
+            }
+            .section-header h3 {
+                font-size: 2rem;
+            }
+            .diary-grid {
+                grid-template-columns: 1fr;
+            }
+            .diary-item.tall {
+                grid-row: span 1;
+                min-height: 300px;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .place-card.span-2-col {
+                grid-column: span 1;
+            }
+            .place-card.row-layout {
+                flex-direction: column;
+            }
+            .place-card.row-layout .card-image {
+                min-height: 160px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-content {
+                padding: 0 16px;
+            }
+            .search-bar-wrapper {
+                padding: 10px 14px;
+                gap: 4px;
+                bottom: -50px;
+            }
+            .search-group {
+                flex: 1 1 100%;
+                padding: 4px 8px;
+            }
+            .search-btn {
+                padding: 14px 20px;
+                font-size: 0.8rem;
+            }
+            .resort-text-side h2 {
+                font-size: 1.5rem;
+            }
+            .section-header h3 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
-<style>
-    /* Reset & Typography */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* Hero Section Container */
-    .hero-container {
-      position: relative;
-      width: 100%;
-      height: 80vh;
-      min-height: 700px;
-      background-image: linear-gradient(to bottom, rgba(27, 38, 59, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(27, 38, 59, 0.8) 100%), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Navbar Styles */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 25px 60px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-    }
-
-    .brand-logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-decoration: none;
-    }
-
-    .brand-logo span {
-      color: #27ae60; /* Emerald Green Accent */
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 35px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 1.05rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #27ae60;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #27ae60;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .cta-btn-outline {
-      border: 2px solid #ffffff;
-      color: #ffffff;
-      padding: 12px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn-outline:hover {
-      background-color: #ffffff;
-      color: #1b263b;
-    }
-
-    /* Hero Content Styles */
-    .hero-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      margin-top: -50px;
-      z-index: 10;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: #FFB300; /* Marigold Gold */
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: 4.5rem;
-      color: #ffffff;
-      font-weight: 800;
-      line-height: 1.1;
-      max-width: 900px;
-      margin-bottom: 30px;
-      text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .hero-description {
-      font-size: 1.25rem;
-      color: #e2e8f0;
-      max-width: 650px;
-      line-height: 1.6;
-      margin-bottom: 40px;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    .cta-btn-primary {
-      background: linear-gradient(135deg, #27ae60 0%, #1e7e43 100%);
-      color: #ffffff;
-      padding: 18px 45px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(39, 174, 96, 0.5);
-    }
-
-    /* Floating Travel Search Bar */
-    .search-bar-wrapper {
-      position: absolute;
-      bottom: 160px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffffff;
-      border-radius: 100px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      padding: 10px 10px 10px 30px;
-      width: 90%;
-      max-width: 1000px;
-      z-index: 20;
-    }
-
-    .search-group {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid #eaeaea;
-      padding: 5px 20px;
-    }
-
-    .search-group:nth-last-child(2) {
-      border-right: none;
-    }
-
-    .search-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #1b263b;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-
-    .search-input {
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      color: #666;
-      background: transparent;
-    }
-
-    .search-input::placeholder {
-      color: #a0aec0;
-    }
-
-    .search-btn {
-      background-color: #1b263b;
-      color: #ffffff;
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background 0.3s ease;
-    }
-
-    .search-btn:hover {
-      background-color: #27ae60;
-    }
-  </style>
 <body>
-    <!-- Hero Section -->
-  <header class="hero-container">
-    
-    <!-- Transparent Glass Navbar -->
-    <nav class="navbar">
-      <a href="#" class="brand-logo">Pakhri<span>bas.</span></a>
-      <ul class="nav-links">
-        <li><a href="#">Discover</a></li>
-        <li><a href="#">Experiences</a></li>
-        <li><a href="#">Culture & Food</a></li>
-        <li><a href="#">Gallery</a></li>
-      </ul>
-      <a href="#" class="cta-btn-outline">Plan Your Trip</a>
-    </nav>
 
-    <!-- Main Hero Content -->
-    <div class="hero-content">
-      <span class="hero-subtitle">The Hidden Emerald of East Nepal</span>
-      <h1 class="hero-title">Escape to the<br>Clouds & Culture.</h1>
-      <p class="hero-description">
-        Experience the authentic lifestyle, pristine nature, and warm hospitality of the eastern hills. 
-        Far from the tourist crowds, a true local adventure awaits.
-      </p>
-      <a href="#" class="cta-btn-primary">Explore Destinations</a>
-    </div>
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="hero-container" id="hero">
+        <!-- Decorative zen circles -->
+        <div class="hero-zen-circle c1"></div>
+        <div class="hero-zen-circle c2"></div>
 
-    <!-- Floating Travel Search Bar -->
-    <div class="search-bar-wrapper">
-      <div class="search-group">
-        <span class="search-label">Location</span>
-        <input type="text" class="search-input" placeholder="Where do you want to go?">
-      </div>
-      <div class="search-group">
-        <span class="search-label">Check In</span>
-        <input type="text" class="search-input" placeholder="Add dates">
-      </div>
-      <div class="search-group">
-        <span class="search-label">Guests</span>
-        <input type="text" class="search-input" placeholder="Add guests">
-      </div>
-      <button class="search-btn">Search</button>
-    </div>
+        <!-- Navbar -->
+        <nav class="navbar" id="navbar">
+            <a href="#" class="brand-logo">Pakhri<span>bas.</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#discover">Discover</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#culture">Culture & Food</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+            <a href="#plan" class="cta-btn-outline desktop-cta">Plan Your Trip</a>
+        </nav>
 
-  </header>
-    <!-- start section -->
-    <div style="max-width: 1100px; margin: 40px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  
-  <div style="background: #ffffff; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); overflow: hidden; display: flex; flex-direction: row; flex-wrap: wrap; margin-bottom: 60px;">
-    
-    <div style="flex: 1; min-width: 350px; background-image: url('https://pbs.twimg.com/media/DiulCNyVMAAB1Xl.jpg'); background-size: cover; background-position: center; min-height: 450px; position: relative;">
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(0,0,0,0.1), transparent); pointer-events: none;"></div>
-    </div>
-
-    <div style="flex: 1.2; min-width: 350px; padding: 50px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
-      <h2 style="font-size: 2.5rem; font-weight: 700; color: #1b263b; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 25px 0; position: relative; padding-bottom: 15px;">
-        Horizon Mountain Resort
-        <span style="content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: linear-gradient(90deg, #27ae60, #2E7D32); border-radius: 2px;"></span>
-      </h2>
-
-      <p style="font-size: 1.05rem; color: #2c3e50; line-height: 1.8; background-color: #f8fcf8; padding: 25px; border-left: 5px solid #27ae60; border-radius: 12px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.01); margin: 0 0 35px 0;">
-        Nestled high above the cloud line, <strong>Horizon Mountain Resort</strong> offers an unparalleled alpine escape that seamlessly blends rugged wilderness with refined luxury. This sanctuary provides a perfect balance of exhilarating adventure and serene rejuvenation for every traveler.
-      </p>
-
-      <div>
-        <a href="#" style="display: inline-block; font-size: 1.1rem; font-weight: 600; color: #ffffff; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; background: linear-gradient(135deg, #27ae60 0%, #1e7e43 100%); padding: 16px 45px; border-radius: 50px; box-shadow: 0 10px 20px rgba(39, 174, 96, 0.25); transition: all 0.3s ease; cursor: pointer;" 
-           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 25px rgba(39, 174, 96, 0.35)';" 
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 20px rgba(39, 174, 96, 0.25)';">
-          Explore The Resort
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top: 40px;">
-    <h3 style="font-size: 2rem; font-weight: 700; color: #1b263b; text-align: center; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 40px;">
-      Popular Places to Visit
-    </h3>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); grid-auto-rows: 240px; gap: 20px; grid-auto-flow: dense;">
-      
-      <div style="grid-column: span 2; grid-row: span 2; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #eaeaea;">
-        <div style="padding: 25px 25px 15px 25px;">
-          <span style="font-size: 0.85rem; color: #27ae60; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">पाख्रीबास कृषि केन्द्र</span>
-          <h4 style="font-size: 1.5rem; color: #1b263b; margin: 5px 0 10px 0; font-weight: 600;">Agricultural Centre</h4>
-          <p style="font-size: 0.95rem; color: #555; margin: 0; line-height: 1.5;">Breathe in the crisp air of our lush research hills, rich with farming history and organic greenery.</p>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <span class="hero-subtitle">The Hidden Emerald of East Nepal</span>
+            <h1 class="hero-title">Escape to the<br>Clouds & Culture.</h1>
+            <p class="hero-description">
+                Experience the authentic lifestyle, pristine nature, and warm hospitality of the eastern hills.
+                Far from the tourist crowds, a true local adventure awaits.
+            </p>
+            <a href="#discover" class="cta-btn-primary">Explore Destinations</a>
         </div>
-        <div style="flex: 1; background-image: url('https://nepaltraveller.com/images/main/1711019207.sidetrackimageUntitled%20design%20(4).png'); background-size: cover; background-position: center; margin: 0 20px 20px 20px; border-radius: 12px;"></div>
-      </div>
 
-      <div style="grid-row: span 2; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #eaeaea;">
-        <div style="padding: 25px 25px 15px 25px;">
-          <span style="font-size: 0.85rem; color: #e67e22; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">हिले बजार</span>
-          <h4 style="font-size: 1.3rem; color: #1b263b; margin: 5px 0 10px 0; font-weight: 600;">Hile Bazar</h4>
-          <p style="font-size: 0.9rem; color: #555; margin: 0; line-height: 1.5;">Vibrant brick-lined streets packed with local spices and authentic cultural blending.</p>
+        <!-- Floating Search Bar -->
+        <div class="search-bar-wrapper">
+            <div class="search-group">
+                <span class="search-label">Location</span>
+                <input type="text" class="search-input" placeholder="Where do you want to go?">
+            </div>
+            <div class="search-group">
+                <span class="search-label">Check In</span>
+                <input type="text" class="search-input" placeholder="Add dates">
+            </div>
+            <div class="search-group">
+                <span class="search-label">Guests</span>
+                <input type="text" class="search-input" placeholder="Add guests">
+            </div>
+            <button class="search-btn">Search</button>
         </div>
-        <div style="flex: 1; background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; margin: 0 20px 20px 20px; border-radius: 12px;"></div>
-      </div>
+    </header>
 
-      <div style="grid-column: span 2; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: row; overflow: hidden; border: 1px solid #eaeaea; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 200px; padding: 25px; display: flex; flex-direction: column; justify-content: center;">
-          <span style="font-size: 0.85rem; color: #2980b9; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">भेडेटार भ्यु टावर</span>
-          <h4 style="font-size: 1.4rem; color: #1b263b; margin: 5px 0 8px 0; font-weight: 600;">Bhedetar Tower</h4>
-          <p style="font-size: 0.9rem; color: #555; margin: 0; line-height: 1.4;">Stand far above the rolling sea of clouds for panoramic mountain views.</p>
+    <!-- ==================== DISCOVER SECTION (Resort) ==================== -->
+    <section id="discover" class="section-container" style="padding-top: 100px;">
+        <div class="resort-card reveal">
+            <div class="resort-image-side"></div>
+            <div class="resort-text-side">
+                <h2>Horizon Mountain Resort</h2>
+                <p class="description">
+                    Nestled high above the cloud line, <strong>Horizon Mountain Resort</strong> offers an unparalleled
+                    alpine escape that seamlessly blends rugged wilderness with refined luxury. This sanctuary provides
+                    a perfect balance of exhilarating adventure and serene rejuvenation for every traveler.
+                </p>
+                <a href="#" class="btn-explore">Explore The Resort</a>
+            </div>
         </div>
-        <div style="flex: 1; min-width: 180px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/13/Vedetar_2019_web_small.jpg'); background-size: cover; background-position: center; margin: 20px; border-radius: 12px;"></div>
-      </div>
+    </section>
 
-      <div style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #eaeaea;">
-        <div style="padding: 20px 20px 10px 20px;">
-          <span style="font-size: 0.8rem; color: #9b59b6; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">तोङ्बा चोक</span>
-          <h4 style="font-size: 1.2rem; color: #1b263b; margin: 3px 0 6px 0; font-weight: 600;">Tongba Chowk</h4>
-          <p style="font-size: 0.85rem; color: #555; margin: 0; line-height: 1.4;">Cozy nights featuring traditional warm millet drinks.</p>
+    <!-- ==================== POPULAR PLACES ==================== -->
+    <section id="experiences" class="section-container" style="padding-top: 20px;">
+        <div class="section-header reveal">
+            <div class="section-divider"></div>
+            <h3>Popular Places to Visit</h3>
+            <p>Handpicked destinations that capture the soul of Pakhribas — each with a story etched into the hills.</p>
         </div>
-        <div style="flex: 1; background-image: url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; margin: 0 18px 18px 18px; border-radius: 10px;"></div>
-      </div>
 
-    </div>
-  </div>
+        <div class="places-grid">
+            <!-- Agricultural Centre - Large -->
+            <div class="place-card span-2-col span-2-row reveal reveal-delay-1">
+                <div class="card-header">
+                    <span class="card-tag tag-green">पाख्रीबास कृषि केन्द्र</span>
+                    <h4>Agricultural Centre</h4>
+                    <p class="card-desc">Breathe in the crisp air of our lush research hills, rich with farming history and organic greenery.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://nepaltraveller.com/images/main/1711019207.sidetrackimageUntitled%20design%20(4).png');"></div>
+            </div>
 
-</div>
- <!-- ================================================================= -->
-<!-- THINGS TO DO SECTION (Authentic Nepali Culture & Food)            -->
-<!-- ================================================================= -->
-<div style="max-width: 1100px; margin: 60px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0 20px;">
-  
-  <!-- Section Title -->
-  <div style="text-align: center; margin-bottom: 50px;">
-    <h3 style="font-size: 2.2rem; font-weight: 800; color: #1b263b; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0;">
-      Immense Yourself: Things to Do
-    </h3>
-    <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
-      Experience the authentic lifestyle, rich cultural heritage, and distinct flavors unique to the hills of East Nepal.
-    </p>
-  </div>
+            <!-- Hile Bazar -->
+            <div class="place-card span-2-row reveal reveal-delay-2">
+                <div class="card-header">
+                    <span class="card-tag tag-orange">हिले बजार</span>
+                    <h4>Hile Bazar</h4>
+                    <p class="card-desc">Vibrant brick-lined streets packed with local spices and authentic cultural blending.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80');"></div>
+            </div>
 
-  <!-- Row 1: Cultural Experience (Asymmetrical Left Heavy Layout) -->
-  <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; align-items: stretch;">
-    
-    <!-- Culture Card -->
-    <div style="flex: 1.4; min-width: 320px; background: #ffffff; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; border-top: 6px solid #D81B60;">
-      <div style="padding: 30px 30px 20px 30px;">
-        <span style="font-size: 0.85rem; color: #D81B60; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 5px;">सांस्कृतिक अनुभव</span>
-        <h4 style="font-size: 1.6rem; color: #1b263b; margin: 0 0 12px 0; font-weight: 700;">Kirat Heritage & Chandi Dance</h4>
-        <p style="font-size: 1rem; color: #4a5568; line-height: 1.6; margin: 0;">
-          Witness the vibrant soul of the local Rai and Limbu communities. If you visit during the Udhauli or Ubhauli festivals, you will experience the mesmerizing rhythmic steps of the traditional Chandi Naach, celebrating nature and ancestral heritage.
-        </p>
-      </div>
-      <div style="flex: 1; min-height: 250px; background-image: url('https://english.onlinekhabar.com/wp-content/uploads/2022/04/yakthung-dhan-naach-1024x678.jpg'); background-size: cover; background-position: center; margin: 0 25px 25px 25px; border-radius: 16px;"></div>
-    </div>
+            <!-- Bhedetar Tower - Row layout -->
+            <div class="place-card span-2-col row-layout reveal reveal-delay-3">
+                <div class="card-header">
+                    <span class="card-tag tag-blue">भेडेटार भ्यु टावर</span>
+                    <h4>Bhedetar Tower</h4>
+                    <p class="card-desc">Stand far above the rolling sea of clouds for panoramic mountain views.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/13/Vedetar_2019_web_small.jpg');"></div>
+            </div>
 
-    <!-- Quick Snippet Card -->
-    <div style="flex: 1; min-width: 320px; background: linear-gradient(135deg, #1b263b 0%, #0d1b2a 100%); border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); padding: 40px; display: flex; flex-direction: column; justify-content: center; color: #ffffff;">
-      <span style="font-size: 2.5rem; color: #FFB300; margin-bottom: 15px;">✨</span>
-      <h5 style="font-size: 1.3rem; font-weight: 600; margin: 0 0 10px 0; color: #FFB300;">Insider Local Tip</h5>
-      <p style="font-size: 0.95rem; color: #e2e8f0; line-height: 1.7; margin: 0;">
-        When entering a traditional home, you might be greeted with a hand-woven Dhaka topi (traditional hat) or a khada scarf as a mark of high respect. It's a warm, unforgettable introduction to our hospitality.
-      </p>
-    </div>
+            <!-- Tongba Chowk -->
+            <div class="place-card reveal reveal-delay-4">
+                <div class="card-header">
+                    <span class="card-tag tag-purple">तोङ्बा चोक</span>
+                    <h4>Tongba Chowk</h4>
+                    <p class="card-desc">Cozy nights featuring traditional warm millet drinks.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80');"></div>
+            </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- ==================== CULTURE & FOOD SECTION ==================== -->
+    <section id="culture" class="section-container" style="padding-top: 80px;">
+        <div class="section-header reveal">
+            <div class="section-divider"></div>
+            <h3>Immense Yourself: Things to Do</h3>
+            <p>Experience the authentic lifestyle, rich cultural heritage, and distinct flavors unique to the hills of East Nepal.</p>
+        </div>
 
-  <!-- Row 2: Traditional Food (Asymmetrical Right Heavy Layout) -->
-  <div style="display: flex; flex-direction: row-reverse; flex-wrap: wrap; gap: 30px; align-items: stretch;">
-    
-    <!-- Food Main Card -->
-    <div style="flex: 1.4; min-width: 320px; background: #ffffff; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; border-top: 6px solid #FFB300;">
-      <div style="padding: 30px 30px 20px 30px;">
-        <span style="font-size: 0.85rem; color: #FFB300; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 5px;">स्थानीय परिकार</span>
-        <h4 style="font-size: 1.6rem; color: #1b263b; margin: 0 0 12px 0; font-weight: 700;">Authentic Eastern Cuisine</h4>
-        <p style="font-size: 1rem; color: #4a5568; line-height: 1.6; margin: 0;">
-          Savor the distinctive tastes of the eastern hills. Beyond the staple organic <strong>Dal Bhat</strong>, treat your palate to local delicacies like <strong>Kinema</strong> (fermented soybeans with a rich, pungent aroma) and fiery wild-pepper chutneys made from fresh mountain herbs.
-        </p>
-      </div>
-      <div style="flex: 1; min-height: 250px; background-image: url('https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; margin: 0 25px 25px 25px; border-radius: 16px;"></div>
-    </div>
+        <!-- Row 1: Culture -->
+        <div class="culture-row reveal reveal-delay-1">
+            <div class="culture-main-card border-pink">
+                <div class="card-body">
+                    <span class="tag" style="color:#c0392b;">सांस्कृतिक अनुभव</span>
+                    <h4>Kirat Heritage & Chandi Dance</h4>
+                    <p>Witness the vibrant soul of the local Rai and Limbu communities. If you visit during the Udhauli or Ubhauli festivals, you will experience the mesmerizing rhythmic steps of the traditional Chandi Naach, celebrating nature and ancestral heritage.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://english.onlinekhabar.com/wp-content/uploads/2022/04/yakthung-dhan-naach-1024x678.jpg');"></div>
+            </div>
+            <div class="culture-side-card dark-card">
+                <span class="icon-large">✨</span>
+                <h5 style="color:#e8c97a;">Insider Local Tip</h5>
+                <p style="color:rgba(255,255,255,0.75);">When entering a traditional home, you might be greeted with a hand-woven <em>Dhaka topi</em> or a <em>khada</em> scarf as a mark of high respect. It's a warm, unforgettable introduction to our hospitality.</p>
+            </div>
+        </div>
 
-    <!-- Side Highlight Card: Sukuti & Sekuwa -->
-    <div style="flex: 1; min-width: 320px; background: #ffffff; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; border: 1px solid #eaeaea;">
-      <div style="padding: 25px 25px 15px 25px;">
-        <h5 style="font-size: 1.25rem; color: #1b263b; margin: 0 0 8px 0; font-weight: 600;">Spiced Sekuwa & Sukuti</h5>
-        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; margin: 0;">
-          Nothing pairs better with evening mountain mist than open-fire grilled meat (Sekuwa) or traditional air-dried jerky cooked with local aromatic ginger, garlic, and wild spices.
-        </p>
-      </div>
-      <div style="flex: 1; min-height: 180px; background-image: url('https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; margin: 0 20px 20px 20px; border-radius: 12px;"></div>
-    </div>
+        <!-- Row 2: Food (Reversed) -->
+        <div class="culture-row reversed reveal reveal-delay-2">
+            <div class="culture-main-card border-gold">
+                <div class="card-body">
+                    <span class="tag" style="color:#c8943e;">स्थानीय परिकार</span>
+                    <h4>Authentic Eastern Cuisine</h4>
+                    <p>Savor the distinctive tastes of the eastern hills. Beyond the staple organic <strong>Dal Bhat</strong>, treat your palate to local delicacies like <strong>Kinema</strong> (fermented soybeans with a rich, pungent aroma) and fiery wild-pepper chutneys made from fresh mountain herbs.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1626132647523-66f5bf380027?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+            <div class="culture-side-card">
+                <h5 style="color:var(--indigo);">Spiced Sekuwa & Sukuti</h5>
+                <p style="color:#555;">Nothing pairs better with evening mountain mist than open-fire grilled meat (Sekuwa) or traditional air-dried jerky cooked with local aromatic ginger, garlic, and wild spices.</p>
+                <div style="flex:1;min-height:150px;background-image:url('https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=600&q=80');background-size:cover;background-position:center;border-radius:12px;margin-top:16px;"></div>
+            </div>
+        </div>
+    </section>
 
-  </div>
+    <!-- ==================== LOCAL DIARY & GALLERY ==================== -->
+    <section id="gallery" class="section-container" style="padding-top: 80px;">
+        <div class="section-header reveal">
+            <div class="section-divider"></div>
+            <h3>Local Diary & Moments</h3>
+            <p>A collection of raw, beautiful frames captured through the eyes of someone who calls these misty hills home.</p>
+        </div>
 
-</div>
+        <div class="diary-grid">
+            <!-- Item 1: Tall - Misty Hills -->
+            <div class="diary-item tall reveal reveal-delay-1">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Misty Hills" loading="lazy">
+                <div class="diary-overlay">
+                    <span class="diary-tag" style="color:#e8c97a;">06:30 AM</span>
+                    <h4>Waking up to the sea of clouds over Bhedetar.</h4>
+                    <p>The crisp mountain air hits differently when the entire world is still sleeping below.</p>
+                </div>
+            </div>
 
-<!-- ================================================================= -->
-<!-- FIXED DIARY & GALLERY SECTION (Optimized Layout)                  -->
-<!-- ================================================================= -->
-<div style="max-width: 1100px; margin: 60px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 0 20px;">
-  
-  <!-- Section Title -->
-  <div style="text-align: center; margin-bottom: 50px;">
-    <h3 style="font-size: 2.2rem; font-weight: 800; color: #1b263b; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px 0;">
-      Local Diary & Moments
-    </h3>
-    <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto;">
-      A collection of raw, beautiful frames captured through the eyes of someone who calls these misty hills home.
-    </p>
-  </div>
+            <!-- Item 2: Local Chai -->
+            <div class="diary-item reveal reveal-delay-2">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Local Chai" loading="lazy">
+                <div class="diary-overlay">
+                    <span class="diary-tag" style="color:#27ae60;">Market Day</span>
+                    <h4>A warm cup of local spiced chiya.</h4>
+                    <p>Stopping by Hile Bazar to hear the morning chatter.</p>
+                </div>
+            </div>
 
-  <!-- Corrected Grid Layout (Max 3 Columns, Self-Healing Heights) -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); auto-rows: minmax(280px, auto); gap: 25px;">
-    
-    <!-- Item 1: Tall Feature Card (Misty Hills) -->
-    <div style="grid-row: span 2; position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.06); min-height: 580px;">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Misty Hills" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <!-- Content Overlay -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, transparent 100%); padding: 30px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <span style="font-size: 0.8rem; color: #FFB300; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">06:30 AM</span>
-        <h4 style="font-size: 1.4rem; color: #ffffff; margin: 0 0 10px 0; font-weight: 700; line-height: 1.3;">Waking up to the sea of clouds over Bhedetar.</h4>
-        <p style="font-size: 0.95rem; color: #e2e8f0; margin: 0; line-height: 1.5;">The crisp mountain air hits differently when the entire world is still sleeping below.</p>
-      </div>
-    </div>
+            <!-- Item 3: Tall - Local Trails -->
+            <div class="diary-item tall reveal reveal-delay-3">
+                <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=600&q=80" alt="Mountain Path" loading="lazy">
+                <div class="diary-overlay">
+                    <span class="diary-tag" style="color:#c0392b;">Untamed Paths</span>
+                    <h4>The forgotten trails of Pakhribas.</h4>
+                    <p>Walking past the experimental tea fields where the air smells faintly of sweet mountain soil and wild flora.</p>
+                </div>
+            </div>
 
-    <!-- Item 2: Medium Standard Card (Local Chai) -->
-    <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.06); min-height: 280px;">
-      <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Local Chai" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <!-- Content Overlay -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%); padding: 25px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <span style="font-size: 0.8rem; color: #27ae60; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Market Day</span>
-        <h4 style="font-size: 1.25rem; color: #ffffff; margin: 0 0 6px 0; font-weight: 700; line-height: 1.3;">A warm cup of local spiced chiya.</h4>
-        <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0; line-height: 1.4;">Stopping by Hile Bazar to hear the morning chatter.</p>
-      </div>
-    </div>
+            <!-- Item 4: Traditional Evening -->
+            <div class="diary-item reveal reveal-delay-4">
+                <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Cozy evening" loading="lazy">
+                <div class="diary-overlay">
+                    <span class="diary-tag" style="color:#a855f7;">Twilight</span>
+                    <h4>Gathered around the comforting hearth.</h4>
+                    <p>Sharing local stories as the cold hill mist settles outside.</p>
+                </div>
+            </div>
 
-    <!-- Item 3: Tall Feature Card (Local Trails) -->
-    <div style="grid-row: span 2; position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.06); min-height: 580px;">
-      <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=600&q=80" alt="Mountain Path" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <!-- Content Overlay -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%); padding: 30px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <span style="font-size: 0.8rem; color: #D81B60; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Untamed Paths</span>
-        <h4 style="font-size: 1.4rem; color: #ffffff; margin: 0 0 10px 0; font-weight: 700; line-height: 1.3;">The forgotten trails of Pakhribas.</h4>
-        <p style="font-size: 0.95rem; color: #e2e8f0; margin: 0; line-height: 1.5;">Walking past the experimental tea fields where the air smells faintly of sweet mountain soil and wild flora.</p>
-      </div>
-    </div>
+            <!-- Item 5: Organic Farming -->
+            <div class="diary-item reveal reveal-delay-5">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Greenery" loading="lazy">
+                <div class="diary-overlay">
+                    <span class="diary-tag" style="color:#06b6d4;">Agricultural Centre</span>
+                    <h4>Shades of pure organic emerald.</h4>
+                    <p>Where innovative hill farming keeps our local ecosystem thriving and green.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Item 4: Medium Standard Card (Traditional Evening) -->
-    <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.06); min-height: 280px;">
-      <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Cozy evening" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <!-- Content Overlay -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%, transparent 100%); padding: 25px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <span style="font-size: 0.8rem; color: #a855f7; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Twilight</span>
-        <h4 style="font-size: 1.25rem; color: #ffffff; margin: 0 0 6px 0; font-weight: 700; line-height: 1.3;">Gathered around the comforting hearth.</h4>
-        <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0; line-height: 1.4;">Sharing local stories as the cold hill mist settles outside.</p>
-      </div>
-    </div>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer" id="plan">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <span class="footer-logo">Pakhri<span>bas.</span></span>
+                <p>The hidden emerald of East Nepal — where clouds meet culture, and every trail tells a story. Discover authentic Himalayan living far from the beaten path.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook" title="Facebook">f</a>
+                    <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+                    <a href="#" aria-label="YouTube" title="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h6>Explore</h6>
+                <ul>
+                    <li><a href="#discover">Horizon Resort</a></li>
+                    <li><a href="#experiences">Popular Places</a></li>
+                    <li><a href="#culture">Culture & Food</a></li>
+                    <li><a href="#gallery">Local Diary</a></li>
+                    <li><a href="#">Travel Guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h6>Destinations</h6>
+                <ul>
+                    <li><a href="#">Agricultural Centre</a></li>
+                    <li><a href="#">Hile Bazar</a></li>
+                    <li><a href="#">Bhedetar Tower</a></li>
+                    <li><a href="#">Tongba Chowk</a></li>
+                    <li><a href="#">Tea Fields</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h6>Get in Touch</h6>
+                <ul>
+                    <li><a href="#">📧 info@pakhribas.com</a></li>
+                    <li><a href="#">📞 +977-980-0000000</a></li>
+                    <li><a href="#">📍 Pakhribas, Dhankuta</a></li>
+                    <li><a href="#">Koshi Province, Nepal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 <span>Pakhribas</span> — Crafted with love in the hills of East Nepal. All rights reserved.
+        </div>
+    </footer>
 
-    <!-- Item 5: Wide/Medium Closing Card (Organic Farming) -->
-    <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.06); min-height: 280px;">
-      <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Greenery" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <!-- Content Overlay -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%); padding: 25px; display: flex; flex-direction: column; justify-content: flex-end;">
-        <span style="font-size: 0.8rem; color: #06b6d4; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Agricultural Centre</span>
-        <h4 style="font-size: 1.25rem; color: #ffffff; margin: 0 0 6px 0; font-weight: 700; line-height: 1.3;">Shades of pure organic emerald.</h4>
-        <p style="font-size: 0.9rem; color: #e2e8f0; margin: 0; line-height: 1.4;">Where innovative hill farming keeps our local ecosystem thriving and green.</p>
-      </div>
-    </div>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // === Scroll-triggered reveal animations ===
+        const revealElements = document.querySelectorAll('.reveal');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.12
+        };
 
-  </div>
-</div>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // === Navbar scroll effect ===
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // === Mobile menu toggle ===
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const spans = menuToggle.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // === Smooth scroll for anchor links ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: position,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // === Parallax-like subtle hero movement ===
+        const heroContainer = document.querySelector('.hero-container');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY < window.innerHeight) {
+                const parallaxSpeed = scrollY * 0.3;
+                heroContainer.style.backgroundPositionY = `calc(50% + ${parallaxSpeed}px)`;
+            }
+        });
+
+        console.log('%c🌿 Pakhribas — The Hidden Emerald of East Nepal %c| %cReady for your journey.',
+            'color:#27ae60;font-size:1.1em;font-weight:bold;',
+            '',
+            'color:#888;');
+        console.log('%cAll sections loaded with scroll animations, parallax effects, and Japanese-inspired design.',
+            'color:#666;font-style:italic;');
+    </script>
 </body>
 </html>
