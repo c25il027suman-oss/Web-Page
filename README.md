@@ -147,4 +147,3 @@ MIT © [Suman OSS] — Feel free to use, modify, and share. Attribution apprecia
   <p>🌄 <strong>Pakhribas</strong> — where every trail holds a story, and every misty morning feels like a new beginning.</p>
   <p><sub>Made with ❤️ in the hills of East Nepal</sub></p>
 </div>
-```
