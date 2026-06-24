@@ -118,7 +118,7 @@ All images used in the demo are for educational / portfolio purposes and belong 
 ## 🌐 Live Demo
 
 <div align="center">
-  <a href="https://c25il027suman-oss.github.io/Web-Page/" target="_blank">
+  <a href="https://suman25027.github.io/Web-Page/" target="_blank">
     <img src="https://img.shields.io/badge/🔗%20View%20Live%20Demo-1e2a3a?style=for-the-badge&logo=github&logoColor=white" alt="View Live Demo" />
   </a>
 </div>
@@ -139,7 +139,7 @@ This project is primarily a design showcase, but suggestions and improvements ar
 
 ## 📜 License
 
-MIT © [Suman OSS] — Feel free to use, modify, and share. Attribution appreciated but not required.
+MIT © [Suman] — Feel free to use, modify, and share. Attribution appreciated but not required.
 
 <br>
 
