@@ -661,10 +661,29 @@
         /* ============ PLACES GRID ============ */
         .places-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-auto-rows: 240px;
+            grid-template-columns: 1.75fr 1fr;
+            grid-template-rows: minmax(280px, auto) minmax(280px, auto) minmax(360px, auto);
             gap: 22px;
             grid-auto-flow: dense;
+        }
+        .place-card.card-large {
+            grid-row: span 2;
+        }
+        .place-card.card-hile {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .place-card.card-pakhribas {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        .place-card.card-bhedetar {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .place-card.card-tongba {
+            grid-column: 2;
+            grid-row: 3;
         }
         .place-card {
             background: #ffffff;
@@ -733,7 +752,12 @@
             background-position: center;
             margin: 0 18px 18px 18px;
             border-radius: 10px;
-            min-height: 100px;
+            min-height: 180px;
+        }
+        .place-card.card-pakhribas .card-image,
+        .place-card.card-bhedetar .card-image,
+        .place-card.card-tongba .card-image {
+            min-height: 240px;
         }
         .place-card.span-2-col .card-image {
             margin: 0 20px 20px 20px;
@@ -1308,6 +1332,11 @@
 
     <!-- ==================== DISCOVER SECTION (Resort) ==================== -->
     <section id="discover" class="section-container" style="padding-top: 100px;">
+        <div class="section-header reveal">
+            <div class="section-divider"></div>
+            <h3>Featured Retreat</h3>
+            <p>Step into a signature escape where mountain luxury blends with local heritage for an unforgettable hill stay.</p>
+        </div>
         <div class="resort-card reveal">
             <div class="resort-image-side"></div>
             <div class="resort-text-side">
@@ -1332,7 +1361,7 @@
 
         <div class="places-grid">
             <!-- Agricultural Centre - Large -->
-            <div class="place-card span-2-col span-2-row reveal reveal-delay-1">
+            <div class="place-card card-large reveal reveal-delay-1">
                 <div class="card-header">
                     <span class="card-tag tag-green">पाख्रीबास कृषि केन्द्र</span>
                     <h4>Agricultural Centre</h4>
@@ -1342,7 +1371,7 @@
             </div>
 
             <!-- Hile Bazar -->
-            <div class="place-card span-2-row reveal reveal-delay-2">
+            <div class="place-card card-hile reveal reveal-delay-2">
                 <div class="card-header">
                     <span class="card-tag tag-orange">हिले बजार</span>
                     <h4>Hile Bazar</h4>
@@ -1351,8 +1380,18 @@
                 <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&w=600&q=80');"></div>
             </div>
 
-            <!-- Bhedetar Tower - Row layout -->
-            <div class="place-card span-2-col row-layout reveal reveal-delay-3">
+            <!-- Pakhribas View Tower -->
+            <div class="place-card card-pakhribas reveal reveal-delay-3">
+                <div class="card-header">
+                    <span class="card-tag tag-purple">पाख्रीबास भ्यु टावर</span>
+                    <h4>Pakhribas View Tower</h4>
+                    <p class="card-desc">A landmark watchtower where mountain ranges from over 14 districts unfold in one sweeping panorama, making it a cherished local viewpoint and sunset destination.</p>
+                </div>
+                <div class="card-image" style="background-image: url('https://hamrolink.com/pakhribas.png');"></div>
+            </div>
+
+            <!-- Bhedetar Tower -->
+            <div class="place-card card-bhedetar reveal reveal-delay-4">
                 <div class="card-header">
                     <span class="card-tag tag-blue">भेडेटार भ्यु टावर</span>
                     <h4>Bhedetar Tower</h4>
@@ -1362,7 +1401,7 @@
             </div>
 
             <!-- Tongba Chowk -->
-            <div class="place-card reveal reveal-delay-4">
+            <div class="place-card card-tongba reveal reveal-delay-5">
                 <div class="card-header">
                     <span class="card-tag tag-purple">तोङ्बा चोक</span>
                     <h4>Tongba Chowk</h4>
