@@ -1090,12 +1090,7 @@
                 letter-spacing: 0.8px;
             }
             .search-bar-wrapper {
-                width: 92%;
-                flex-wrap: wrap;
-                border-radius: 30px;
-                padding: 14px 18px;
-                gap: 8px;
-                bottom: -20px;
+                display:none;
             }
             .search-group {
                 border-right: none;
@@ -1184,9 +1179,10 @@
                 display: none;
             }
             .search-bar-wrapper {
-                bottom: -40px;
-                border-radius: 24px;
-                width: 94%;
+                display:none;
+            }
+            .search-group {
+                min-width: unset;
             }
             .resort-card {
                 flex-direction: column;
@@ -1234,10 +1230,15 @@
             .search-bar-wrapper {
                 padding: 10px 14px;
                 gap: 4px;
-                bottom: -50px;
+                bottom: 16px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 28px);
+                max-width: 100%;
             }
             .search-group {
                 flex: 1 1 100%;
+                min-width: unset;
                 padding: 4px 8px;
             }
             .search-btn {
@@ -1426,7 +1427,7 @@
         <div class="diary-grid">
             <!-- Item 1: Tall - Misty Hills -->
             <div class="diary-item tall reveal reveal-delay-1">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Misty Hills" loading="lazy">
+                <img src="https://snowberry.prixacdn.net/media/gallery_folder/bHEDETAR%20(1)_Y0Pbuh6ESA_ei2b062p4ufncvuwjgk3tahjwphyypzwo77pvkkiyhheqgtifk0weofemlr1.jpg" alt="Misty Hills" loading="lazy">
                 <div class="diary-overlay">
                     <span class="diary-tag" style="color:#e8c97a;">06:30 AM</span>
                     <h4>Waking up to the sea of clouds over Bhedetar.</h4>
@@ -1446,7 +1447,7 @@
 
             <!-- Item 3: Tall - Local Trails -->
             <div class="diary-item tall reveal reveal-delay-3">
-                <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=600&q=80" alt="Mountain Path" loading="lazy">
+                <img src="https://d2exd72xrrp1s7.cloudfront.net/www/000/1k7/1h/1hfoakz2zvms21glglvt8pr0og4re8gkgx-uhi66789619/0" alt="Mountain Path" loading="lazy">
                 <div class="diary-overlay">
                     <span class="diary-tag" style="color:#c0392b;">Untamed Paths</span>
                     <h4>The forgotten trails of Pakhribas.</h4>
@@ -1466,7 +1467,7 @@
 
             <!-- Item 5: Organic Farming -->
             <div class="diary-item reveal reveal-delay-5">
-                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Greenery" loading="lazy">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGprWTiAvHISYcaORWLxOgM760Szeqf4SQZbHCHVX-AA71vtpnnlDaLze2mS-ctUx-UPs5ln9qddiFn2ocjKCNaB5nghdrlOsynBfgrZcMtsII4JbsPM94b2a3SpxuuIUc6_azC=s1360-w1360-h1020-rw" alt="Greenery" loading="lazy">
                 <div class="diary-overlay">
                     <span class="diary-tag" style="color:#06b6d4;">Agricultural Centre</span>
                     <h4>Shades of pure organic emerald.</h4>
@@ -1487,6 +1488,7 @@
                     <a href="#" aria-label="Instagram" title="Instagram">📷</a>
                     <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
                     <a href="#" aria-label="YouTube" title="YouTube">▶</a>
+                    <a href="https://github.com/suman25027/Web-Page" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">GH</a>
                 </div>
             </div>
             <div class="footer-col">
