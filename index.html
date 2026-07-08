@@ -1129,7 +1129,19 @@
                 gap: 30px;
             }
             .places-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                grid-template-columns: 1fr;
+                grid-template-rows: unset;
+            }
+            .place-card.card-large,
+            .place-card.card-hile,
+            .place-card.card-pakhribas,
+            .place-card.card-bhedetar,
+            .place-card.card-tongba {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            .place-card .card-image {
+                min-height: 220px;
             }
             .place-card.span-2-col {
                 grid-column: span 1;
@@ -1236,6 +1248,9 @@
             }
             .place-card.span-2-col {
                 grid-column: span 1;
+            }
+            .place-card .card-image {
+                min-height: 200px;
             }
             .place-card.row-layout {
                 flex-direction: column;
